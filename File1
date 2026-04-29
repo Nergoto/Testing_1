@@ -1,1 +1,144 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Simple Dashboard</title>
+  <style>
+    :root {
+      --bg: #f3f4f6;
+      --card: #ffffff;
+      --text: #111827;
+      --muted: #6b7280;
+      --accent: #2563eb;
+      --success: #10b981;
+      --warning: #f59e0b;
+    }
 
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+    }
+
+    .container {
+      max-width: 1000px;
+      margin: 0 auto;
+      padding: 24px;
+    }
+
+    h1 {
+      margin-top: 0;
+      margin-bottom: 20px;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 16px;
+    }
+
+    .card {
+      background: var(--card);
+      border-radius: 12px;
+      padding: 16px;
+      box-shadow: 0 2px 8px rgba(0,0,0,.08);
+    }
+
+    .label {
+      font-size: 14px;
+      color: var(--muted);
+      margin-bottom: 8px;
+    }
+
+    .value {
+      font-size: 28px;
+      font-weight: 700;
+    }
+
+    .delta {
+      margin-top: 8px;
+      font-size: 13px;
+    }
+
+    .up { color: var(--success); }
+    .down { color: #ef4444; }
+
+    .chart {
+      margin-top: 20px;
+      background: var(--card);
+      border-radius: 12px;
+      padding: 16px;
+      box-shadow: 0 2px 8px rgba(0,0,0,.08);
+    }
+
+    .bars {
+      margin-top: 12px;
+      display: flex;
+      align-items: end;
+      gap: 12px;
+      height: 180px;
+    }
+
+    .bar {
+      flex: 1;
+      background: linear-gradient(180deg, var(--accent), #60a5fa);
+      border-radius: 6px 6px 0 0;
+      position: relative;
+    }
+
+    .bar span {
+      position: absolute;
+      bottom: -24px;
+      left: 50%;
+      transform: translateX(-50%);
+      font-size: 12px;
+      color: var(--muted);
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Simple Dashboard</h1>
+
+    <section class="grid">
+      <div class="card">
+        <div class="label">Revenue</div>
+        <div class="value">$24,500</div>
+        <div class="delta up">▲ 8.3% this month</div>
+      </div>
+      <div class="card">
+        <div class="label">New Users</div>
+        <div class="value">1,240</div>
+        <div class="delta up">▲ 4.1% this week</div>
+      </div>
+      <div class="card">
+        <div class="label">Orders</div>
+        <div class="value">318</div>
+        <div class="delta down">▼ 2.0% yesterday</div>
+      </div>
+      <div class="card">
+        <div class="label">Conversion Rate</div>
+        <div class="value">3.7%</div>
+        <div class="delta up">▲ 0.5% today</div>
+      </div>
+    </section>
+
+    <section class="chart">
+      <div class="label">Weekly Traffic</div>
+      <div class="bars">
+        <div class="bar" style="height: 45%"><span>Mon</span></div>
+        <div class="bar" style="height: 70%"><span>Tue</span></div>
+        <div class="bar" style="height: 55%"><span>Wed</span></div>
+        <div class="bar" style="height: 85%"><span>Thu</span></div>
+        <div class="bar" style="height: 65%"><span>Fri</span></div>
+        <div class="bar" style="height: 90%"><span>Sat</span></div>
+        <div class="bar" style="height: 60%"><span>Sun</span></div>
+      </div>
+    </section>
+  </div>
+</body>
+</html>
